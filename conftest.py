@@ -6,6 +6,7 @@ import pytest
 
 @pytest.fixture(params=["chrome", "firefox"])
 def driver(request):
+    global driver
     try:
         browser = request.param
         options = Options()
