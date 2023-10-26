@@ -24,7 +24,7 @@ jobs:
           command: |
             LATEST_GECKODRIVER_VERSION=$(curl -sS https://github.com/mozilla/geckodriver/releases/latest | cut -d'"' -f2 | awk -F / '{print $7}')
             curl -o /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/$LATEST_GECKODRIVER_VERSION/geckodriver-$LATEST_GECKODRIVER_VERSION-linux64.tar.gz
-            tar -xzvf /tmp/geckodriver.tar.gz -C /tmp
+            tar -xvzf /tmp/geckodriver.tar.gz -C /tmp
             sudo mv /tmp/geckodriver /usr/local/bin/geckodriver
             sudo chmod +x /usr/local/bin/geckodriver
             geckodriver --version
