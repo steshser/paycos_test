@@ -23,8 +23,7 @@ jobs:
           name: Install Chrome WebDriver
           command: |
             CHROMEDRIVER_VERSION="118.0.5993.70"
-            CHROMEDRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$CHROMEDRIVER_VERSION/linux64/chromedriver-linux64.zip"
-            curl -o /tmp/chromedriver.zip $CHROMEDRIVER_URL
+            curl -o /tmp/chromedriver.zip https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/linux64/chromedriver-linux64.zip
             unzip /tmp/chromedriver.zip -d /tmp
             sudo mv /tmp/chromedriver /usr/local/bin/chromedriver
             sudo chmod +x /usr/local/bin/chromedriver
