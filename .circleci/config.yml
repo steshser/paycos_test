@@ -12,22 +12,23 @@ jobs:
       - run:
           name: Install Chrome and Firefox
           command: |
-            CHROME_VERSION="114.0.5735.133-1"
-            curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-            echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-            sudo apt-get update
-            sudo apt-get -y install google-chrome-stable=$CHROME_VERSION
+            CHROME_VERSION="118.0.5993.70"
+            CHROME_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$CHROME_VERSION/linux64/chrome-linux64.zip"
+            curl -LO $CHROME_URL
+            unzip chrome-linux64.zip
+            sudo mv chrome-linux64/chrome /usr/local/bin/
+            chrome --version
 
             sudo apt-get -y install firefox
 
       - run:
           name: Install Chrome WebDriver
           command: |
-            LATEST_CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-            curl -o /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-            unzip /tmp/chromedriver.zip -d /tmp
-            sudo mv /tmp/chromedriver /usr/local/bin/chromedriver
-            sudo chmod +x /usr/local/bin/chromedriver
+            CHROMEDRIVER_VERSION="118.0.5993.70"
+            CHROMEDRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$CHROMEDRIVER_VERSION/linux64/chromedriver-linux64.zip"
+            curl -LO $CHROMEDRIVER_URL
+            unzip chromedriver-linux64.zip
+            sudo mv chromedriver /usr/local/bin/
             chromedriver --version
 
       - run:
