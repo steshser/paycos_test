@@ -7,12 +7,10 @@ import pytest
 @pytest.fixture(params=["google-chrome", "firefox"])
 def driver(request):
     browser = request.param
-    options = Options()
-    options.add_argument("--headless")
     if browser == "google-chrome":
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome()
     elif browser == "firefox":
-        driver = webdriver.Firefox(options=options)
+        driver = webdriver.Firefox()
     else:
         raise ValueError(f"Invalid browser specified: {browser}")
     yield driver
