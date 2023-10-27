@@ -15,8 +15,6 @@ RUN apt-get update && apt-get install -y google-chrome-stable
 RUN apt-get install -y firefox
 
 # Установка Chrome WebDriver
-RUN mkdir -p /usr/local/bin
-RUN echo "export PATH=\$PATH:/usr/local/bin" >> $BASH_ENV
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/linux64/chromedriver-linux64.zip -O /tmp/chromedriver-linux64.zip
 RUN unzip /tmp/chromedriver-linux64.zip -d /tmp
 RUN mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
