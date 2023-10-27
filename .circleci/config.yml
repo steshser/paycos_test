@@ -18,6 +18,8 @@ jobs:
             sudo apt-get -y install google-chrome-stable
 
             sudo apt-get -y install firefox
+            google-chrome --version
+            firefox --version
 
       - run:
           name: Install Chrome WebDriver
