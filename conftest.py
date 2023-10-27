@@ -4,12 +4,12 @@ from selenium.webdriver.firefox.options import Options
 import pytest
 
 
-@pytest.fixture(params=["chrome", "firefox"])
+@pytest.fixture(params=["google-chrome", "firefox"])
 def driver(request):
     browser = request.param
     options = Options()
     options.add_argument("--headless")
-    if browser == "chrome":
+    if browser == "google-chrome":
         driver = webdriver.Chrome(options=options)
     elif browser == "firefox":
         driver = webdriver.Firefox(options=options)
