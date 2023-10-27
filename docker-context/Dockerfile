@@ -25,3 +25,6 @@ RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckod
 RUN tar -xzf /tmp/geckodriver.tar.gz -C /tmp
 RUN mv /tmp/geckodriver /usr/local/bin/geckodriver
 RUN chmod +x /usr/local/bin/geckodriver
+
+# Добавление в PATH
+RUN echo "export PATH=\$PATH:/usr/local/bin" >> $BASH_ENV
