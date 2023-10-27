@@ -16,6 +16,7 @@ RUN apt-get install -y firefox
 
 # Установка Chrome WebDriver
 RUN mkdir -p /usr/local/bin
+RUN echo "export PATH=\$PATH:/usr/local/bin" >> $BASH_ENV
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/linux64/chromedriver-linux64.zip -O /tmp/chromedriver-linux64.zip
 RUN unzip /tmp/chromedriver-linux64.zip -d /tmp
 RUN mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
@@ -26,4 +27,4 @@ RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckod
 RUN tar -xzf /tmp/geckodriver.tar.gz -C /tmp
 RUN mv /tmp/geckodriver /usr/local/bin/geckodriver
 RUN chmod +x /usr/local/bin/geckodriver
-RUN echo "export PATH=\$PATH:/usr/local/bin" >> $BASH_ENV
+
