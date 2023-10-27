@@ -21,7 +21,7 @@ RUN mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
 RUN chmod +x /usr/local/bin/chromedriver
 
 # Установка GeckoDriver
-RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0.tar.gz -O /tmp/geckodriver.tar.gz
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz -O /tmp/geckodriver.tar.gz
 RUN tar -xzf /tmp/geckodriver.tar.gz -C /tmp
 RUN mv /tmp/geckodriver /usr/local/bin/geckodriver
 RUN chmod +x /usr/local/bin/geckodriver
