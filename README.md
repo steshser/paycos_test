@@ -15,6 +15,8 @@ Before running the tests, ensure you have the following prerequisites installed 
 - Pip
 - Chrome WebDriver
 - Gecko WebDriver (Firefox)
+- Google Chrome browser (suitable version with Chrome WebDriver)
+- Firefox browser (suitable version with Gecko WebDriver)
 
 ## Setup
 1. Clone the repository to your local machine:
