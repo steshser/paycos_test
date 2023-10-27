@@ -5,9 +5,13 @@ RUN apt-get update && apt-get install -y \
     curl \
     unzip \
     software-properties-common \
-
-RUN apt-get update && apt-get install -y wget curl unzip software-properties-common
-RUN apt-get update && apt-get install -y wget bzip2 libxtst6 libgtk-3-0 libx11-xcb-dev libdbus-glib-1-2 libxt6 libpci-dev && rm -rf /var/lib/apt/lists/*
+    bzip2 \
+    libxtst6 \
+    libxtst6 \
+    libx11-xcb-dev \
+    libdbus-glib-1-2 \
+    libxt6 \
+    libpci-dev
 
 
 # Установка Google Chrome
