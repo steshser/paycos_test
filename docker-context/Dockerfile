@@ -4,7 +4,9 @@ RUN apt-get update && apt-get install -y \
     wget \
     curl \
     unzip \
-    software-properties-common
+    software-properties-common \
+
+RUN apt-get update && apt-get install -y wget bzip2 libxtst6 libgtk-3-0 libx11-xcb-dev libdbus-glib-1-2 libxt6 libpci-dev && rm -rf /var/lib/apt/lists/*
 
 # Установка Google Chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
