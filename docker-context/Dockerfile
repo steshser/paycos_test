@@ -27,10 +27,12 @@ RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.
 RUN unzip /tmp/chromedriver-linux64.zip -d /tmp
 RUN mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
 RUN chmod +x /usr/local/bin/chromedriver
+RUN chromedriver --version
 
 # Установка GeckoDriver
 RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz -O /tmp/geckodriver.tar.gz
 RUN tar -xzf /tmp/geckodriver.tar.gz -C /tmp
 RUN mv /tmp/geckodriver /usr/local/bin/geckodriver
 RUN chmod +x /usr/local/bin/geckodriver
+RUN geckodriver --version
 
