@@ -8,13 +8,6 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: Download Selenium
-          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
-      - run:
-          name: Start Selenium
-          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
-          background: true
 
       - run:
           name: Install Chrome and Firefox
@@ -34,7 +27,7 @@ jobs:
             unzip /tmp/chromedriver-linux64.zip -d /tmp
             sudo mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
             sudo chmod +x /usr/local/bin/chromedriver
-            echo "export PATH=\$PATH:/usr/local/bin" >> $BASH_ENV
+            echo "export PATH=\$PATH:/usr/local/bin/chromedriver" >> $BASH_ENV
             source $BASH_ENV
             chromedriver --version
 
@@ -46,7 +39,7 @@ jobs:
             tar -xzf /tmp/geckodriver.tar.gz -C /tmp
             sudo mv /tmp/geckodriver /usr/local/bin/geckodriver
             sudo chmod +x /usr/local/bin/geckodriver
-            echo "export PATH=\$PATH:/usr/local/bin" >> $BASH_ENV
+            echo "export PATH=\$PATH:/usr/local/bin/geckodriver" >> $BASH_ENV
             source $BASH_ENV
             geckodriver --version
 
