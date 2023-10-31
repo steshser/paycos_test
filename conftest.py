@@ -10,10 +10,12 @@ def driver(request):
     if browser == "google-chrome":
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
+        options.add_argument('--no-sandbox')
         driver = webdriver.Chrome(options=options)
     elif browser == "firefox":
         options = webdriver.FirefoxOptions()
         options.add_argument("--headless")
+        options.add_argument('--no-sandbox')
         driver = webdriver.Firefox(options=options)
     else:
         raise ValueError(f"Invalid browser specified: {browser}")
