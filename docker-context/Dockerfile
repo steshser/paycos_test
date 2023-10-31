@@ -24,8 +24,8 @@ RUN unzip /root/chromedriver_linux64.zip -d /usr/local/bin/
 
 # Установка Mozilla Firefox и GeckoDriver
 RUN apt-get update && apt-get install -y firefox
-RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.29.0/geckodriver-v0.29.0-linux64.tar.gz
-RUN tar -xzf geckodriver-v0.29.0-linux64.tar.gz -C /usr/local/bin/
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.29.0-linux64.tar.gz
+RUN tar -xzf geckodriver-v0.33.0-linux64.tar.gz -C /usr/local/bin/
 RUN chmod +x /usr/local/bin/geckodriver
 
 # Добавляем драйверы в PATH
