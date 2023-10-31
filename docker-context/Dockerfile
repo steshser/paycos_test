@@ -37,6 +37,9 @@ RUN mv /tmp/geckodriver /usr/local/bin/geckodriver
 RUN chmod +x /usr/local/bin/geckodriver
 RUN geckodriver --version
 
+# Добавляем драйверы в PATH
+ENV PATH=$PATH:/usr/local/bin
+
 # Устанавливаем и настраиваем Xvfb (виртуальный X-сервер)
 RUN Xvfb :99 -ac &
 
