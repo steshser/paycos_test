@@ -15,27 +15,18 @@ RUN apt-get update && apt-get install -y \
     xvfb
 
 
-# Установка Google Chrome
+# Установка Google Chrome и Chrome WebDriver
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 RUN apt-get update && apt-get install -y google-chrome-stable
+RUN wget -N https://chromedriver.storage.googleapis.com/LATEST -P /root/
+RUN unzip /root/chromedriver_linux64.zip -d /usr/local/bin/
 
-# Установка Mozilla Firefox
-RUN apt-get install -y firefox
-
-# Установка Chrome WebDriver
-RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/linux64/chromedriver-linux64.zip -O /tmp/chromedriver-linux64.zip
-RUN unzip /tmp/chromedriver-linux64.zip -d /tmp
-RUN mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
-RUN chmod +x /usr/local/bin/chromedriver
-RUN chromedriver --version
-
-# Установка GeckoDriver
-RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz -O /tmp/geckodriver.tar.gz
-RUN tar -xzf /tmp/geckodriver.tar.gz -C /tmp
-RUN mv /tmp/geckodriver /usr/local/bin/geckodriver
+# Установка Mozilla Firefox и GeckoDriver
+RUN apt-get update && apt-get install -y firefox
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.29.0/geckodriver-v0.29.0-linux64.tar.gz
+RUN tar -xzf geckodriver-v0.29.0-linux64.tar.gz -C /usr/local/bin/
 RUN chmod +x /usr/local/bin/geckodriver
-RUN geckodriver --version
 
 # Добавляем драйверы в PATH
 ENV PATH=$PATH:/usr/local/bin
