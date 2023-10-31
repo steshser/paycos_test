@@ -19,8 +19,10 @@ RUN apt-get update && apt-get install -y \
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 RUN apt-get update && apt-get install -y google-chrome-stable
-RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/linux64/chromedriver-linux64.zip -P /root/
-RUN unzip /root/chromedriver_linux64.zip -d /usr/local/bin/
+RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/linux64/chromedriver-linux64.zip -O /tmp/chromedriver-linux64.zip
+RUN unzip /tmp/chromedriver-linux64.zip -d /tmp
+RUN mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/
+RUN chmod +x /usr/local/bin/chromedriver
 
 # Установка Mozilla Firefox и GeckoDriver
 RUN apt-get update && apt-get install -y firefox
