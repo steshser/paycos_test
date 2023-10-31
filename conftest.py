@@ -9,12 +9,12 @@ def driver(request):
     browser = request.param
     if browser == "google-chrome":
         options = webdriver.ChromeOptions()
-        service = Service(executable_path="web_drivers")
-        driver = webdriver.Chrome(service=service, options=options)
+        options.add_argument("--headless")
+        driver = webdriver.Chrome(options=options)
     elif browser == "firefox":
         options = webdriver.FirefoxOptions()
-        service = Service(executable_path="web_drivers")
-        driver = webdriver.Firefox(service=service, options=options)
+        options.add_argument("--headless")
+        driver = webdriver.Firefox(options=options)
     else:
         raise ValueError(f"Invalid browser specified: {browser}")
     yield driver
